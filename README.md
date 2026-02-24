@@ -1,203 +1,125 @@
-# 🧠 End-to-End Architecture Summary  
-## Bronze → Silver → Gold → BI  
-### Enterprise Supply Chain Analytics Platform
+# Enterprise Supply Chain Analytics Platform
+
+## Dashboard
+
+![Supply Chain Analytics Dashboard](./images/dashboard.png)
 
 ---
 
-# 🏗 Overall Architecture
+## Project Overview
 
-SAP ERP & SAP IBP Source Systems  
-            ↓  
-🥉 Bronze Layer (Raw Ingestion)  
-            ↓  
-🥈 Silver Layer (Cleansed & Structured)  
-            ↓  
-🥇 Gold Layer (Galaxy Schema & KPIs)  
-            ↓  
-📊 BI Layer (Executive Dashboards)
+This project delivers an end-to-end supply chain analytics solution built on the Medallion architecture. It transforms raw SAP ERP and SAP IBP data into governed, analytics-ready insights for executive decision-making using Databricks and Power BI.
 
-This architecture follows the **Medallion Design Pattern**, ensuring scalability, governance, and performance.
+The platform emphasizes scalability, data quality, lineage, and semantic modeling best practices.
 
 ---
 
-# 🥉 Bronze Layer – Raw Data Foundation
+## Architecture Summary
 
-## Purpose
-The Bronze layer stores raw data exactly as received from source systems.
+**Data Flow**
 
-## Key Characteristics
-- Raw SAP & IBP files ingested from ADLS
-- Stored as Delta tables
-- Minimal transformation
-- Schema inferred
-- Ingestion timestamp added
-- No business logic applied
+SAP ERP & IBP → Bronze → Silver → Gold → Power BI
 
-## Why It Matters
-- Preserves original data
-- Enables reprocessing if logic changes
-- Supports audit & lineage
-- Prevents contamination of business layer
-
-Bronze is the **single source of truth for ingestion**.
+* **Bronze** preserves raw data
+* **Silver** standardizes and cleans
+* **Gold** models business-ready facts and dimensions
+* **BI** delivers executive dashboards
 
 ---
 
-# 🥈 Silver Layer – Cleansing & Standardization
+## 1. Gold Layer — Medallion Architecture
 
-## Purpose
-Transforms raw data into clean, structured datasets ready for modeling.
+**Objective:** Demonstrate the structured Medallion flow and Gold readiness.
 
-## Transformations Applied
-- Standardized column names
-- Trimmed and padded business keys (MATNR, LIFNR)
-- Enforced correct data types
-- Converted SAP date formats
-- Removed duplicates
-- Aggregated heavy transaction tables
-- Preserved business grain
+**Highlights**
 
-## Output
-Clean relational datasets:
-- Demand actual
-- Demand forecast
-- Purchase orders
-- Inventory
-- Quality inspections
-- Master data tables
+* Bronze raw ingestion
+* Silver standardized layer
+* Gold galaxy schema
+* Optimized for BI consumption
 
-## Why It Matters
-Silver ensures:
-- Reliable joins
-- Clean foreign keys
-- Stable KPI calculations
-- No type mismatch errors
-- Structured SAP relationships
-
-Silver is the **engineering backbone** of the solution.
+![Medallion Architecture — Bronze to Silver to Gold](./Data_Lineage/Volumes/Medallion.png)
 
 ---
 
-# 🥇 Gold Layer – Business Modeling & KPI Engine
+## 2. Compute Infrastructure
 
-## Purpose
-Converts structured Silver data into a business-ready analytical model.
+**Objective:** Showcase the scalable compute backbone.
 
-## Design Approach
-- Galaxy Schema (multiple star schemas)
-- Conformed dimensions
-- Surrogate keys
-- Partitioned Delta tables
-- ZORDER optimization
+**Highlights**
 
-## Fact Tables
-- fact_demand_actual
-- fact_demand_forecast
-- fact_demand_forecast_snapshot (for Lag KPIs)
-- fact_purchase_order
-- fact_inventory
-- fact_inventory_month_end_stock
-- fact_batch_release_extern
-- fact_batch_release_internal
+* Distributed Databricks compute
+* Auto-scaling clusters
+* Delta Lake optimization
+* Handles large SAP workloads
 
-## Dimension Tables
-- dim_date
-- dim_product
-- dim_customer
-- dim_supplier
-- dim_location
-- dim_storage
-- dim_batch
-- dim_currency
-- dim_uom
+### All-Purpose Cluster (Hackathon Cluster) — DE Workloads
 
-## KPIs Enabled (As Required)
-- FCA Cons Forecast
-- FCA IBP Forecast
-- Budget Attainment
-- FCA Lag 3 (requires snapshot)
-- FCA Lag 6 (requires snapshot)
+![All Purpose Cluster](./images/all_purpose_cluster.png)
 
-## Why Galaxy Schema?
-Because multiple business processes exist:
-- Demand Planning
-- Procurement
-- Inventory
-- Quality
+### SQL Warehouse (BI_Warehouse) — BI Workloads
 
-Shared dimensions allow cross-functional analytics.
-
-Gold is the **business delivery layer**.
+![SQL Warehouse](./images/sql_wh.png)
 
 ---
 
-# 📊 BI Layer – Executive Visualization & Decision Support
+## 3. Medallion Lineage — Facts & Dimensions
 
-## Purpose
-Consumes Gold tables and delivers interactive dashboards.
+**Objective:** Provide end-to-end traceability from raw ingestion to business model.
 
-## Modeling Rules
-- 1-to-Many relationships
-- Single-direction filtering
-- No fact-to-fact joins
-- Surrogate keys hidden
-- Date table marked properly
+**Highlights**
 
-## Dashboard Focus
-- Forecast Accuracy (FCA)
-- Budget Performance
-- Demand trends
-- Lag-based forecast stability
+* Bronze ingestion lineage
+* Silver standardization
+* Gold conformed facts and dimensions
+* Full pipeline traceability
 
-## Governance
-- BI accesses only Gold schema
-- Bronze & Silver restricted
-- Clean separation of responsibilities
+### Dimension Tables Lineage
 
-BI transforms data into **actionable insights**.
+![Dimension Tables Lineage](./images/consolidated_dim_tables.png)
+
+### Fact Tables Lineage
+
+![Fact Tables Lineage](./images/consolidated_fact_tables.png)
 
 ---
 
-# 🔄 Data Flow Summary
+## 4. Power BI Semantic Model & KPIs
 
-1. Raw SAP & IBP data lands in Bronze.
-2. Silver standardizes and structures data.
-3. Gold builds conformed dimensions & facts.
-4. BI calculates and visualizes KPIs.
+**Objective:** Deliver executive-ready analytics through a governed semantic layer.
 
-Each layer has a single responsibility:
+**Flow**
 
-| Layer   | Responsibility |
-|----------|----------------|
-| Bronze  | Preserve raw data |
-| Silver  | Clean & structure |
-| Gold    | Model & optimize |
-| BI      | Visualize & analyze |
+ER Diagram → KPI Measures → Executive Dashboard
 
----
+**Key KPIs**
 
-# 🚀 Business Impact
+* Forecast Accuracy (FCA)
+* Budget Attainment
+* Demand performance tracking
 
-This architecture enables:
+### Model View (ER Diagram)
 
-- Accurate forecast performance measurement
-- Budget tracking
-- Cross-functional demand visibility
-- Scalable analytics platform
-- Enterprise-grade data governance
+![Model View Diagram](./images/er.png)
 
-It demonstrates a production-ready analytics solution built using modern data engineering best practices.
+### Executive KPI Dashboard
+
+![Executive KPI Dashboard](./images/dashboard.png)
 
 ---
 
-# 🏁 Conclusion
+## Business Impact
 
-The implemented Bronze → Silver → Gold → BI pipeline:
+This platform enables:
 
-- Ensures data reliability
-- Enables required KPIs
-- Supports scalable growth
-- Maintains architectural discipline
-- Delivers executive decision intelligence
+* Accurate forecast performance measurement
+* Budget visibility across the supply chain
+* Cross-functional analytics
+* Scalable enterprise data foundation
+* Governed, production-ready BI
 
-This end-to-end solution transforms raw SAP & IBP data into measurable business value.
+---
+
+## Conclusion
+
+The Medallion-based pipeline converts raw SAP and IBP data into a scalable, governed supply chain analytics platform that delivers reliable, executive-grade insights.
