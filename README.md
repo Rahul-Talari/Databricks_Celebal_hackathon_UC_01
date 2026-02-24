@@ -38,7 +38,7 @@ SAP ERP & IBP → Bronze → Silver → Gold → Power BI
 * Gold galaxy schema
 * Optimized for BI consumption
 
-![Medallion Architecture — Bronze to Silver to Gold](./Data_Lineage_Images/Volumes/Medallion.png)
+![Medallion Architecture — Bronze to Silver to Gold](./Data_Lineage/Volumes/Medallion.png)
 
 ---
 
