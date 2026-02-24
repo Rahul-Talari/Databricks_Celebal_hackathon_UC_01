@@ -2,7 +2,7 @@
 
 ## Dashboard
 
-![Supply Chain Analytics Dashboard](./images/dashboard.png)
+![Supply Chain Analytics Dashboard](./Cluster_&_BI_Images/dashboard.png)
 
 ---
 
@@ -38,7 +38,7 @@ SAP ERP & IBP → Bronze → Silver → Gold → Power BI
 * Gold galaxy schema
 * Optimized for BI consumption
 
-![Medallion Architecture — Bronze to Silver to Gold](./Data_Lineage/Volumes/Medallion.png)
+![Medallion Architecture — Bronze to Silver to Gold](./Data_Lineage_Images/Volumes/Medallion.png)
 
 ---
 
@@ -55,11 +55,11 @@ SAP ERP & IBP → Bronze → Silver → Gold → Power BI
 
 ### All-Purpose Cluster (Hackathon Cluster) — DE Workloads
 
-![All Purpose Cluster](./images/all_purpose_cluster.png)
+![All Purpose Cluster](./Cluster_&_BI_Images/all_purpose_cluster.png)
 
 ### SQL Warehouse (BI_Warehouse) — BI Workloads
 
-![SQL Warehouse](./images/sql_wh.png)
+![SQL Warehouse](./Cluster_&_BI_Images/sql_wh.png)
 
 ---
 
@@ -76,11 +76,11 @@ SAP ERP & IBP → Bronze → Silver → Gold → Power BI
 
 ### Dimension Tables Lineage
 
-![Dimension Tables Lineage](./images/consolidated_dim_tables.png)
+![Dimension Tables Lineage](./Cluster_&_BI_Images/consolidated_dim_tables.png)
 
 ### Fact Tables Lineage
 
-![Fact Tables Lineage](./images/consolidated_fact_tables.png)
+![Fact Tables Lineage](./Cluster_&_BI_Images/consolidated_fact_tables.png)
 
 ---
 
@@ -100,11 +100,11 @@ ER Diagram → KPI Measures → Executive Dashboard
 
 ### Model View (ER Diagram)
 
-![Model View Diagram](./images/ER.png)
+![Model View Diagram](./Cluster_&_BI_Images/ER.png)
 
 ### Executive KPI Dashboard
 
-![Executive KPI Dashboard](./images/dashboard.png)
+![Executive KPI Dashboard](./Cluster_&_BI_Images/dashboard.png)
 
 ---
 
