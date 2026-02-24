@@ -100,7 +100,7 @@ ER Diagram → KPI Measures → Executive Dashboard
 
 ### Model View (ER Diagram)
 
-![Model View Diagram](./images/er.png)
+![Model View Diagram](./images/ER.png)
 
 ### Executive KPI Dashboard
 
