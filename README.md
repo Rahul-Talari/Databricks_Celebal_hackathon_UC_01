@@ -7,8 +7,10 @@
 ---
 ## Project Overview Video
 
-<iframe width="560" height="315" src="https://youtu.be/QkgYrP1yWko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/QkgYrP1yWko)
 
+
+URL : https://youtu.be/QkgYrP1yWko
 ## Project Overview
 
 This project delivers an end-to-end supply chain analytics solution built on the Medallion architecture. It transforms raw SAP ERP and SAP IBP data into governed, analytics-ready insights for executive decision-making using Databricks and Power BI.
