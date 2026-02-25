@@ -4,13 +4,18 @@
 
 ![Supply Chain Analytics Dashboard](./Cluster_&_BI_Images/dashboard.png)
 
+### Live Dashboard URL : [Analytics Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMGY5M2NlMTMtNzViOC00M2RlLThhZTUtOWQ2M2RmM2Y2OGYyIiwidCI6IjYyNGQ1YzRiLTQ1YzUtNDEyMi04Y2QwLTQ0ZjBmODRlOTQ1ZCJ9)
+
+### Dashboard QR CODE
+![Dashboard QR](./Cluster_&_BI_Images/qr.jpeg)
+
 ---
 ## Project Overview Video
 
-[![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/QkgYrP1yWko)
+<!-- [![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/QkgYrP1yWko) -->
 
 
-URL : https://youtu.be/QkgYrP1yWko
+### URL : [Overview Video](https://youtu.be/QkgYrP1yWko)
 ## Project Overview
 
 This project delivers an end-to-end supply chain analytics solution built on the Medallion architecture. It transforms raw SAP ERP and SAP IBP data into governed, analytics-ready insights for executive decision-making using Databricks and Power BI.
